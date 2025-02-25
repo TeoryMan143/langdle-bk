@@ -7,3 +7,7 @@ export type LangFeatures =
   | 'silableTimed';
 
 export type LanguageCode = (typeof languageCodes)[number];
+export type Language = {
+  id: LanguageCode;
+  features: LangFeatures[];
+};

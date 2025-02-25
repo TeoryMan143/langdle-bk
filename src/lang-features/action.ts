@@ -1,6 +1,6 @@
 import { type LanguageCode } from '..//core/types.ts';
-import { db } from '..//database/config.ts';
-import { languages, features } from '..//database/tables.ts';
+import { db } from '../database/relational/config.ts';
+import { languages, features } from '../database/relational/tables.ts';
 import { eq } from 'drizzle-orm';
 
 export async function getLanguage(id: LanguageCode) {
