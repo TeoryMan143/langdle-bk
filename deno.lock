@@ -1,7 +1,7 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@hono/hono@^4.7.2": "4.7.2",
+    "jsr:@hono/hono@^4.7.4": "4.7.4",
     "jsr:@std/assert@1": "1.0.11",
     "jsr:@std/internal@^1.0.5": "1.0.5",
     "npm:@libsql/client@0.14": "0.14.0",
@@ -12,8 +12,8 @@
     "npm:zod@^3.24.2": "3.24.2"
   },
   "jsr": {
-    "@hono/hono@4.7.2": {
-      "integrity": "73466a24bd6eb3b527cde18e59ca5543890ddacb4312fc0bc7504d28a7e57a38"
+    "@hono/hono@4.7.4": {
+      "integrity": "c03c9cbe0fbfc4e51f3fee6502a7903aa4f9ef7c2c98635607b15eee14258825"
     },
     "@std/assert@1.0.11": {
       "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
@@ -480,7 +480,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@hono/hono@^4.7.2",
+      "jsr:@hono/hono@^4.7.4",
       "jsr:@std/assert@1",
       "npm:@libsql/client@0.14",
       "npm:drizzle-kit@~0.30.4",

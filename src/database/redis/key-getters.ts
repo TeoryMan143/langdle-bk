@@ -1,4 +1,4 @@
-import { Language } from '../../core/types.ts';
+import type { Language } from '../../core/types.ts';
 import { client } from './config.ts';
 
 export async function getLanguageById(id: string) {
