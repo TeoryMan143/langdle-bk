@@ -1,10 +1,9 @@
-import type { Language } from '../../core/types.ts';
 import { client } from './config.ts';
 
-export async function getLanguageById(id: string) {
+export async function getObjectByKey(group: string, id: string) {
   try {
-    const lang = await client.json.get(`lang:${id}`);
-    return lang as Language;
+    const lang = await client.json.get(`${group}:${id}`);
+    return lang as object;
   } catch (error) {
     console.error('Redis error', error);
     return;

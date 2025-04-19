@@ -1,7 +1,6 @@
 import { Hono } from '@hono/hono';
 import { langCodeSchema } from '..//core/schemas/language.ts';
-// import { getLanguage, getLanguageFeatures } from './action.ts';
-import { getLanguageById } from '../database/redis/key-getters.ts';
+import { getLanguageById } from './action.ts';
 
 const langFeatures = new Hono();
 

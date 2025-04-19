@@ -1,21 +1,7 @@
-import { type LanguageCode } from '..//core/types.ts';
-import { db } from '../database/relational/config.ts';
-import { languages, features } from '../database/relational/tables.ts';
-import { eq } from 'drizzle-orm';
+import type { Language, LanguageCode } from '..//core/types.ts';
+import { getObjectByKey } from '../database/redis/key-getters.ts';
 
-export async function getLanguage(id: LanguageCode) {
-  const [lang] = await db.select().from(languages).where(eq(languages.id, id));
-  return lang;
-}
-
-export async function getLanguageFeatures(id: LanguageCode) {
-  const feats = await db
-    .select({
-      feature: features.feature,
-    })
-    .from(languages)
-    .where(eq(languages.id, id))
-    .innerJoin(features, eq(languages.id, features.langId));
-
-  return feats.map(f => f.feature);
+export async function getLanguageById(id: LanguageCode) {
+  const langData = (await getObjectByKey('lang', id)) as Language;
+  return langData;
 }
