@@ -1,7 +1,12 @@
 import { createClient } from 'redis';
 
 const client = createClient({
-  url: Deno.env.get('REDIS_URL'),
+  username: Deno.env.get('REDIS_USER'),
+  password: Deno.env.get('REDIS_PASSWORD'),
+  socket: {
+    host: Deno.env.get('REDIS_HOST'),
+    port: +Deno.env.get('REDIS_PORT')!,
+  },
 });
 
 client.on('error', err => {

@@ -1,13 +1,7 @@
-import { languageCodes } from './values.ts';
+import { z } from 'zod';
+import { languageCodes, langFeatures } from './values.ts';
+import { langDataSchema } from './schemas/language.ts';
 
-export type LangFeatures =
-  | 'nasalVowels'
-  | 'latinAlphabet'
-  | 'stressTimed'
-  | 'silableTimed';
-
+export type LangFeatures = (typeof langFeatures)[number];
 export type LanguageCode = (typeof languageCodes)[number];
-export type Language = {
-  id: LanguageCode;
-  features: LangFeatures[];
-};
+export type Language = z.TypeOf<typeof langDataSchema>;
