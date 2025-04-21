@@ -1,4 +1,4 @@
-import type { Language, LanguageCode } from '../../core/types.ts';
+import type { LanguageData, LanguageCode, Language } from '../../core/types.ts';
 import { client } from '../../database/redis/config.ts';
 import {
   getObjectByKey,
@@ -6,7 +6,7 @@ import {
 } from '../../database/redis/key-getters.ts';
 
 export async function getLanguageById(id: LanguageCode) {
-  const langData = (await getObjectByKey('lang', id)) as Language;
+  const langData = { id, ...(await getObjectByKey('lang', id)) } as Language;
   return langData;
 }
 
@@ -30,7 +30,7 @@ export async function setLanguageData({
   data,
 }: {
   id: LanguageCode;
-  data: Language;
+  data: LanguageData;
 }) {
   const res = await setObjectToKey('lang', id, data);
   return res === 'OK';

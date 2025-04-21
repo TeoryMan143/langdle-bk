@@ -4,4 +4,5 @@ import { langDataSchema } from './schemas/language.ts';
 
 export type LangFeatures = (typeof langFeatures)[number];
 export type LanguageCode = (typeof languageCodes)[number];
-export type Language = z.TypeOf<typeof langDataSchema>;
+export type LanguageData = z.TypeOf<typeof langDataSchema>;
+export type Language = { id: LanguageCode } & LanguageData;
