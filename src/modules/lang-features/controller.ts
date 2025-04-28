@@ -18,6 +18,15 @@ langFeatures.get('/:id', async c => {
 
   const lang = await getLanguageById(langId);
 
+  if (!lang) {
+    return c.json(
+      {
+        message: 'Language not found',
+      },
+      500,
+    );
+  }
+
   return c.json(lang);
 });
 
